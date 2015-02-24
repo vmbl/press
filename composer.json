@@ -1,5 +1,5 @@
 {
-    "name": "vmbl/ajaxcart",
+    "name": "vmbl/press",
     "description": "Official Magento Plugin to connect to geoip Service Provider Adyen'.",
     "type": "magento-module",
     "homepage": "https://github.com/adyenpayments/magento",
