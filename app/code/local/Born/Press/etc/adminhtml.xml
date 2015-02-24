@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<config>
+    <menu>
+		<press translate="title" module="press">
+			<title>Press</title>
+			<sort_order>101</sort_order>
+			<children>
+			  <press module="press">
+				<title>Manage Press Content</title>
+				<sort_order>0</sort_order>
+				<action>adminhtml/media/index</action>
+			  </press>
+			</children>
+		</press>
+    </menu>
+</config>

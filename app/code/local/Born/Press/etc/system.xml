@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <tabs>
+        <born translate="label" module="press">
+            <label>Born Extensions</label>
+            <sort_order>100</sort_order>
+        </born>
+    </tabs>
+    <sections>
+        <press translate="label" module="press">
+            <label>Press Extension Options</label>
+            <tab>born</tab>
+            <sort_order>1000</sort_order>
+            <show_in_default>1</show_in_default>
+            <show_in_website>1</show_in_website>
+            <show_in_store>1</show_in_store>
+            <groups>
+                <press_group translate="label" module="press">
+                    <label>Press Extension Options</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>1000</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <press_input translate="label">
+                            <label>Items per Page</label>
+                            <comment>Comma-separated</comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </press_input>
+                    </fields>
+                </press_group>
+            </groups>
+        </press>
+    </sections>
+</config>

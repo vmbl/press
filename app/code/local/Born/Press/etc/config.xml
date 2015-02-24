@@ -1,0 +1,126 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Born_Press>
+            <version>0.1.1</version>
+        </Born_Press>
+    </modules>
+	
+    <adminhtml>
+    	<layout>
+            <updates>
+                <press>
+                    <file>press.xml</file>
+                </press>
+            </updates>
+        </layout>
+        <!-- The <acl> section is for access control. Here we define the pieces where access can be controlled within a role. -->
+        <acl>
+            <resources>
+                <admin>
+                    <children>
+                      <press>
+                            <title>Press Item</title>
+                            <children>
+                                <press translate="title" module="press">
+                                    <title>Press Item</title>
+                                </press>
+                            </children>
+                        </press>
+						<system>
+							<children>
+								<config>
+									<children>
+										<press>
+											<title>Born Press settings</title>
+										</press>
+									</children>
+								</config>
+							</children>
+						</system>
+                    </children>
+                </admin>
+            </resources>
+        </acl>
+    </adminhtml>
+	
+	<admin>
+        <routers>
+            <adminhtml>
+                <args>
+                    <modules>
+                        <press before="Mage_Adminhtml">Born_Press_Adminhtml</press>
+                    </modules>
+                </args>
+            </adminhtml>
+        </routers>
+    </admin>
+	<frontend>
+		<routers>
+			<press>
+				<use>standard</use>
+				<args>
+					<module>Born_Press</module>
+					<frontName>press</frontName>
+				</args>
+			</press>
+		</routers>
+		<layout>
+			<updates>
+				<press>
+					<file>press.xml</file>
+				</press>
+			</updates>
+		</layout>
+	</frontend>
+ 
+    <global>
+        <resources>
+            <press_setup>
+                <setup>
+                    <module>Born_Press</module>
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </press_setup>
+            <press_write>
+                <connection>
+                    <use>core_write</use>
+                </connection>
+            </press_write>
+            <press_read>
+                <connection>
+                    <use>core_read</use>
+                </connection>
+            </press_read>
+        </resources>
+		
+		<models>
+            <press>
+                <class>Born_Press_Model</class>
+                <resourceModel>press_mysql4</resourceModel>
+            </press>
+             <press_mysql4>
+                <class>Born_Press_Model_Mysql4</class>
+                <entities>
+                    <media>
+                        <table>born_press</table>
+                    </media>
+                </entities>
+            </press_mysql4>
+        </models>
+		
+        <blocks>
+            <press>
+                <class>Born_Press_Block</class>
+            </press>
+        </blocks>
+		
+        <helpers>
+            <press>
+                <class>Born_Press_Helper</class>
+            </press>
+        </helpers>
+    </global>
+</config>

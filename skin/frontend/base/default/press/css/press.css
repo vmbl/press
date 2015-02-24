@@ -1,0 +1,13 @@
+/* @begin press page */
+.press-index-index .category-products .products-grid li.item { width: 260px; margin: 20px 10px; }
+.press-index-index #cboxTitle { display: none !important; }
+.press-index-index .issue-magazine-image { margin-bottom: 10px }
+.press-index-index .issue-title { font-family: gillsans; font-size: 16px; font-weight: 600; }
+.press-index-index .pager .pages a.next { background: none; position: relative; bottom: 3px; }
+.press-index-index .pager { font-family: gillsans; text-transform: uppercase; font-sie: 11px; }
+.press-index-index .pager .amount .totalcount { font-size: 32px; font: normal 32px/16px 'optimamedium',arial; vertical-align: middle; }
+.press-index-index .pager .pages ol li, .press-index-index .pager .limiter { color: #505050; }
+.press-index-index .pager .amount .totalitems { display: inline-block; text-transform: uppercase; vertical-align: middle; }
+.press-index-index .products-grid{background:none}
+.press-index-index .col1-layout .products-grid {margin: 0 auto;width: 900px;}
+/* @end press page */

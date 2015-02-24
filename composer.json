@@ -1,0 +1,26 @@
+{
+    "name": "vmbl/ajaxcart",
+    "description": "Official Magento Plugin to connect to geoip Service Provider Adyen'.",
+    "type": "magento-module",
+    "homepage": "https://github.com/adyenpayments/magento",
+    "license": "OSL-3.0",
+    "authors": [
+        {
+            "name": "Born",
+            "email": "support@born.com"
+        }
+    ],
+    "require": {
+        "magento-hackathon/magento-composer-installer": "2.*"
+    },
+    "extra":{
+	"map":[
+		["app/etc/modules/Born_Press.xml", "app/etc/modules/Born_Press.xml"],
+		["app/code/local/Born/Press", "app/code/local/Born/Press"],
+		["app/design/frontend/base/default/layout/press.xml", "app/design/frontend/base/default/layout/press.xml"],
+		["app/design/frontend/base/default/template/press", "app/design/frontend/base/default/template/press"],
+		["js/press/jquery-1.7.2.min.js", "js/press/jquery-1.7.2.min.js"],
+		["skin/frontend/base/default/press", "skin/frontend/base/default/press"]
+	]
+    }
+}

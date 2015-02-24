@@ -1,0 +1,80 @@
+<?php
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category    design
+ * @package     base_default
+ * @copyright   Copyright (c) 2012 Magento Inc. (http://www.magentocommerce.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+?>
+<?php
+/**
+ * Press Issue template
+ *
+ * @see Mage_Press_Block_Media
+ */
+?>
+<?php
+    $_issueCollection = $this->getCollection();
+	$media_url = Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA);
+?>
+<?php if(!$_issueCollection->count()): ?>
+<p class="note-msg"><?php echo $this->__('There are no press issues available.') ?></p>
+<?php else: ?>
+<div class="category-products">
+	<?php echo $this->getPagerHtml() ?>
+    <?php // Grid Mode ?>
+
+    <?php $_collectionSize = $_issueCollection->count() ?>
+    <?php $_columnCount = $this->getColumnCount(); ?>
+    <?php $i=0; foreach ($_issueCollection as $_issue): ?>
+        <?php if ($i++%$_columnCount==0): ?>
+        <ul class="products-grid">
+        <?php endif ?>
+            <li class="item<?php if(($i-1)%$_columnCount==0): ?> first<?php elseif($i%$_columnCount==0): ?> last<?php endif; ?>">
+                <a href="#issue-<?php echo $_issue->getId() ?>" title="<?php echo $_issue->getPressPageTitle() ?>" class="issue-cover-image">
+                	<?php if($_issue->getPressCoverImage() != null): ?>
+                		<img width="280" height="350" src="<?php echo $media_url . 'born/press/' ?><?php echo $_issue->getPressCoverImage() ?>" width="327" height="241" alt="" />
+                	<?php else: ?>
+                		<img src="<?php echo $this->getSkinUrl('images/css/footer-social-links.jpg') ?>" />
+                	<?php endif ?>
+                </a>
+                <div class="show-issue" id="issue-<?php echo $_issue->getId() ?>" style="display: none">
+                	<div class="issue-magazine-image">
+                	<?php if($_issue->getPressMagazineImage() != null): ?>
+                		<img src="<?php echo $media_url . 'born/press/' ?><?php echo $_issue->getPressMagazineImage() ?>" />
+                	<?php else: ?>
+                		<img src="<?php echo $this->getSkinUrl('images/css/footer-social-links.jpg') ?>" />
+                	<?php endif ?>
+                	</div>
+                	<div class="issue-title">
+                		<?php echo $_issue->getPressPageTitle() ?> - <?php echo $_issue->getIssueMonth() ?>
+                	</div>
+                </div>
+            </li>
+        <?php if ($i%$_columnCount==0 || $i==$_collectionSize): ?>
+        </ul>
+        <?php endif ?>
+        <?php endforeach ?>
+	<script type="text/javascript">
+		decorateGeneric($$('ul.products-grid'), ['odd','even','first','last']);
+   	</script>
+</div>
+<?php endif; ?>
